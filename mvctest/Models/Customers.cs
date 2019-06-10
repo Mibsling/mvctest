@@ -17,11 +17,11 @@ namespace mvctest.Models
         [Required(ErrorMessage = "Please enter your city")]
         public string CustCity { get; set; }
         [Required(ErrorMessage = "Please enter your province")]
+        [StringLength(2)]
         public string CustProv { get; set; }
         [Required(ErrorMessage = "Please enter your postal code")]
         [StringLength(7)]
         public string CustPostal { get; set; }
-        [StringLength(2)]
         public string CustCountry { get; set; }
         public string CustHomePhone { get; set; }
         [Required(ErrorMessage = "Please enter your business phone number")]

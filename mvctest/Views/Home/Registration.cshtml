@@ -15,7 +15,7 @@
                     <input asp-for="CustFirstName" class="form-control" />
                     <span asp-validation-for="CustFirstName" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label asp-for="CustLastName" class="control-label">Last Name: </label>
                     <input asp-for="CustLastName" class="form-control" />
                     <span asp-validation-for="CustLastName" class="text-danger"></span>
@@ -37,12 +37,12 @@
             <div class="row">
                 <div class="form-group col-md-1">
                     <label asp-for="CustProv" class="control-label">Province: </label>
-                    <input asp-for="CustProv" class="form-control" />
+                    <input asp-for="CustProv" class="form-control" placeholder="XX"/>
                     <span asp-validation-for="CustProv" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-2">
                     <label asp-for="CustPostal" class="control-label">Postal Code: </label>
-                    <input asp-for="CustPostal" class="form-control" />
+                    <input asp-for="CustPostal" class="form-control" placeholder="*** ***"/>
                     <span asp-validation-for="CustPostal" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
@@ -64,14 +64,14 @@
                 </div>
                 <div class="form-group col-md-offset-2 col-md-1">
                     <label asp-for="AgentId" class="control-label">Agent ID: </label>
-                    <input asp-for="AgentId" class="form-control" />
+                    <input asp-for="AgentId" class="form-control" placeholder="#"/>
                     <span asp-validation-for="AgentId" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label asp-for="CustEmail" class="control-label">Email: </label>
-                    <input asp-for="CustEmail" class="form-control" />
+                    <input asp-for="CustEmail" class="form-control" placeholder="email@address.com"/>
                     <span asp-validation-for="CustEmail" class="text-danger"></span>
                 </div>
             </div>
