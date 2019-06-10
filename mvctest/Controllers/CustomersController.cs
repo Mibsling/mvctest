@@ -59,9 +59,11 @@ namespace mvctest.Controllers
             {
                 _context.Add(customers);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("~/Views/Home/Index.cshtml");
+                //return RedirectToAction(nameof(Index));
             }
             return View(customers);
+            
         }
 
         // GET: Customers/Edit/5

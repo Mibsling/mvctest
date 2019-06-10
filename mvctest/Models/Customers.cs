@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace mvctest.Models
 {
     public partial class Customers
     {
         public int CustomerId { get; set; }
+        [Required(ErrorMessage = "Please enter your name")]
         public string CustFirstName { get; set; }
         public string CustLastName { get; set; }
         public string CustAddress { get; set; }

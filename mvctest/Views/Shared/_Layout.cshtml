@@ -31,8 +31,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Registration">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Agents" asp-action="Create">Agent</a></li>
+                    <li>@Html.ActionLink("Create", "Create", "Agents")</li>
+                    <li>@Html.ActionLink("Edit", "Index", "Agents")</li>
+                    <li>@Html.ActionLink("Registration", "Index", "Customers")</li>
                 </ul>
             </div>
         </div>

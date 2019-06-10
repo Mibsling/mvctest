@@ -10,6 +10,7 @@ namespace mvctest.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly TravelExpertsContext _context;
         public IActionResult Index()
         {
             return View();
@@ -28,6 +29,25 @@ namespace mvctest.Controllers
 
             return View();
         }
+
+        public IActionResult Registration()
+        {
+            ViewData["Message"] = "Your registration page.";
+
+            return View();
+        }
+
+        //public async Task<IActionResult> Registration([Bind("CustomerId,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId,PasswordNotHashed,PasswordHashed,PasswordSalt")] Customers customers)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(customers);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(customers);
+        //}
+
 
         public IActionResult Privacy()
         {
