@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using mvctest.Models;
+using System.Diagnostics;
 
 namespace mvctest.Controllers
 {
@@ -23,6 +25,7 @@ namespace mvctest.Controllers
         {
             return View(await _context.Customers.ToListAsync());
         }
+
 
         // GET: Customers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -55,12 +58,14 @@ namespace mvctest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId,PasswordNotHashed,PasswordHashed,PasswordSalt")] Customers customers)
         {
+            _context.Customers.ToList();
             if (ModelState.IsValid)
             {
                 _context.Add(customers);
+                Debug.WriteLine(_context.Customers);
                 await _context.SaveChangesAsync();
-                return View("~/Views/Home/Index.cshtml");
-                //return RedirectToAction(nameof(Index));
+                HttpContext.Session.SetString("userEmail", customers.CustEmail);
+                return Redirect("~/");
             }
             return View(customers);
             
