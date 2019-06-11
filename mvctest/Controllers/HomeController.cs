@@ -37,18 +37,6 @@ namespace mvctest.Controllers
             return View();
         }
 
-        //public async Task<IActionResult> Registration([Bind("CustomerId,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId,PasswordNotHashed,PasswordHashed,PasswordSalt")] Customers customers)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(customers);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(customers);
-        //}
-
-
         public IActionResult Privacy()
         {
             return View();
