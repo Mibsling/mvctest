@@ -63,10 +63,9 @@
                     }
                     else
                     {
-                        <div class="userLoggedIn">
-                            Logged in as: @Context.Session.GetString("userEmail")
-                            <br><a asp-area="" asp-controller="Home" asp-action="LogOut" class="nav-link">Log Out</a>
-                        </div>
+                        <li class="nav-item">Logged in as: @Context.Session.GetString("userEmail")
+                            <br><a asp-area="" asp-controller="Home" asp-action="LogOut" class="nav-link text-center">Log Out</a>
+                        </li>
                     }
                 </ul>
             </div>
