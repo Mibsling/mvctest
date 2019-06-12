@@ -56,6 +56,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
                     <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item active"><a asp-area="" asp-controller="Home" asp-action="Agents" class="nav-link">Agents</a></li>
                     @*<li>@Html.ActionLink("Registration", "Index", "Customers")</li>*@
                     @if (string.IsNullOrEmpty(Context.Session.GetString("userEmail")))
                     {
@@ -63,7 +64,8 @@
                     }
                     else
                     {
-                        <li class="nav-item">Logged in as: @Context.Session.GetString("userEmail")
+                        <li class="nav-item">
+                            Logged in as: @Context.Session.GetString("userEmail")
                             <br><a asp-area="" asp-controller="Home" asp-action="LogOut" class="nav-link text-center">Log Out</a>
                         </li>
                     }

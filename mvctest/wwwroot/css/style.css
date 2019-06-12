@@ -148,6 +148,11 @@ a {
     color: #34c0e7;
     text-decoration: underline; }
 
+
+.center_div {
+    margin: 0 auto;
+    width: 80% /* value of your choice which suits your alignment */
+}
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none; }

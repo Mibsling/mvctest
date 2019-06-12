@@ -13,21 +13,18 @@
     </div>
 </div>
 
-
-<h2>Registration</h2>
-
 <hr />
-<div class="row">
+@*<div class="row">
     <div>
         <form asp-controller="Customers" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label asp-for="CustFirstName" class="control-label">First Name: </label>
                     <input asp-for="CustFirstName" class="form-control" />
                     <span asp-validation-for="CustFirstName" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label asp-for="CustLastName" class="control-label">Last Name: </label>
                     <input asp-for="CustLastName" class="form-control" />
                     <span asp-validation-for="CustLastName" class="text-danger"></span>
@@ -44,17 +41,17 @@
                     <input asp-for="CustCity" class="form-control" />
                     <span asp-validation-for="CustCity" class="text-danger"></span>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="form-group col-md-1">
                     <label asp-for="CustProv" class="control-label">Province: </label>
-                    <input asp-for="CustProv" class="form-control" placeholder="XX"/>
+                    <input asp-for="CustProv" class="form-control" placeholder="XX" />
                     <span asp-validation-for="CustProv" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-2">
                     <label asp-for="CustPostal" class="control-label">Postal Code: </label>
-                    <input asp-for="CustPostal" class="form-control" placeholder="*** ***"/>
+                    <input asp-for="CustPostal" class="form-control" placeholder="*** ***" />
                     <span asp-validation-for="CustPostal" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
@@ -76,14 +73,14 @@
                 </div>
                 <div class="form-group col-md-offset-1 col-md-1">
                     <label asp-for="AgentId" class="control-label">Agent ID: </label>
-                    <input asp-for="AgentId" class="form-control" placeholder="#"/>
+                    <input asp-for="AgentId" class="form-control" placeholder="#" />
                     <span asp-validation-for="AgentId" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label asp-for="CustEmail" class="control-label">Email: </label>
-                    <input asp-for="CustEmail" class="form-control" placeholder="email@address.com"/>
+                    <input asp-for="CustEmail" class="form-control" placeholder="email@address.com" />
                     <span asp-validation-for="CustEmail" class="text-danger"></span>
                 </div>
             </div>
@@ -97,8 +94,115 @@
             <input type="submit" value="Register" class="btn btn-default" />
         </form>
     </div>
+</div>*@
+
+<div class="container">
+    <table class="table table-striped center_div">
+        <tbody>
+            <tr>
+                <td colspan="1">
+                    <form asp-controller="Customers" asp-action="Create" class="well form-horizontal">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <fieldset>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label asp-for="CustFirstName">First Name: </label>
+                                    <input asp-for="CustFirstName" class="form-control" />
+                                    <span asp-validation-for="CustFirstName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-5">
+                                    <label asp-for="CustLastName">Last Name: </label>
+                                    <input asp-for="CustLastName" class="form-control" />
+                                    <span asp-validation-for="CustLastName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label asp-for="CustAddress">Address: </label>
+                                    <input asp-for="CustAddress" class="form-control" />
+                                    <span asp-validation-for="CustAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustCity">City: </label>
+                                    <input asp-for="CustCity" class="form-control" />
+                                    <span asp-validation-for="CustCity" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustProv">Province: </label>
+                                    <input asp-for="CustProv" class="form-control" placeholder="XX" />
+                                    <span asp-validation-for="CustProv" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustPostal">Postal Code: </label>
+                                    <input asp-for="CustPostal" class="form-control" placeholder="*** ***" />
+                                    <span asp-validation-for="CustPostal" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustCountry">Country: </label>
+                                    <input asp-for="CustCountry" class="form-control" />
+                                    <span asp-validation-for="CustCountry" class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustHomePhone">Home Phone: </label>
+                                    <input asp-for="CustHomePhone" class="form-control" />
+                                    <span asp-validation-for="CustHomePhone" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CustBusPhone">Business Phone: </label>
+                                    <input asp-for="CustBusPhone" class="form-control" />
+                                    <span asp-validation-for="CustBusPhone" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="AgentId">Agent ID: </label>
+                                    <input asp-for="AgentId" class="form-control" placeholder="#" />
+                                    <span asp-validation-for="AgentId" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CustEmail">Email: </label>
+                                    <input asp-for="CustEmail" class="form-control" placeholder="email@address.com" />
+                                    <span asp-validation-for="CustEmail" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="PasswordNotHashed">Password: </label>
+                                    <input asp-for="PasswordNotHashed" class="form-control" />
+                                    <span asp-validation-for="PasswordNotHashed" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <input type="submit" value="Register" class="btn btn-primary" />                            
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        </fieldset>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-@Html.ValidationSummary()
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+
+
+                @Html.ValidationSummary()
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
