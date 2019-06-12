@@ -58,7 +58,8 @@ namespace mvctest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId,PasswordNotHashed,PasswordHashed,PasswordSalt")] Customers customers)
         {
-            _context.Customers.ToList();
+            //_context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
+            Debug.Write("\n\n\n");
             if (ModelState.IsValid)
             {
                 _context.Add(customers);
