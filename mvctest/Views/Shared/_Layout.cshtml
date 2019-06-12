@@ -38,6 +38,11 @@
         <link rel="stylesheet" href="~/css/flaticon.css" />
         <link rel="stylesheet" href="~/css/icomoon.css" />
         <link rel="stylesheet" href="~/css/style.css" />
+        <style>
+            .loggedInAs {
+                background-color: #8d703b;
+            }
+        </style>
 
 
     </environment>
@@ -64,8 +69,7 @@
                     }
                     else
                     {
-                        <li class="nav-item">
-                            Logged in as: @Context.Session.GetString("userEmail")
+                        <li class="nav-item loggedInAs">Logged in as: @Context.Session.GetString("userEmail")
                             <br><a asp-area="" asp-controller="Home" asp-action="LogOut" class="nav-link text-center">Log Out</a>
                         </li>
                     }
