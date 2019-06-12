@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using mvctest.Models;
 
 namespace mvctest.Controllers
@@ -17,6 +18,10 @@ namespace mvctest.Controllers
             return View();
         }
 
+        public HomeController(TravelExpertsContext context)
+        {
+            _context = context;
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -43,6 +48,11 @@ namespace mvctest.Controllers
             ViewData["Message"] = "Your registration page.";
 
             return View();
+        }
+
+        public async Task<IActionResult> Agencies()
+        {
+            return View(await _context.Agencies.ToListAsync());
         }
 
         public IActionResult Privacy()
