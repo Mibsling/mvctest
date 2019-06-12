@@ -18,34 +18,33 @@
     </div>
 </div>
 
-@foreach (var item in Model){
-<div class="container justify-content-center">
-    <div class="row d-flex mb-5 contact-info justify-content-center">
+            <div class="container justify-content-center">
+                <div class="row d-flex mb-5 contact-info justify-content-center">
 
-
-        <div class="w-100"></div>
-        <div class="col-md-3 d-flex">
-            <div class="info bg-white p-4">
-                <h2 class="h3">Address</h2>
-                <hr />
-                <p> @Html.DisplayFor(modelItem => item.AgncyAddress)</p>
-                <p>@Html.DisplayFor(modelItem => item.AgncyCity), @Html.DisplayFor(modelItem => item.AgncyProv)</p>
-                <p>@Html.DisplayFor(modelItem => item.AgncyPostal), @Html.DisplayFor(modelItem => item.AgncyCountry)</p>
+                    @foreach (var item in Model){
+                    <div class="w-100"></div>
+                    <div class="col-md-3 d-flex">
+                        <div class="info bg-white p-4">
+                            <h2 class="h3">Address</h2>
+                            <hr />
+                            <p> @Html.DisplayFor(modelItem => item.AgncyAddress)</p>
+                            <p>@Html.DisplayFor(modelItem => item.AgncyCity), @Html.DisplayFor(modelItem => item.AgncyProv)</p>
+                            <p>@Html.DisplayFor(modelItem => item.AgncyPostal), @Html.DisplayFor(modelItem => item.AgncyCountry)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex">
+                        <div class="info bg-white p-4">
+                            <h2 class="h3">Phone</h2>
+                            <hr />
+                            <p>
+                                @Html.DisplayFor(modelItem => item.AgncyPhone),  @Html.DisplayFor(modelItem => item.AgncyFax)
+                            </p>
+                        </div>
+                    </div>
+                    <hr />}
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 d-flex">
-            <div class="info bg-white p-4">
-                <h2 class="h3">Phone</h2>
-                <hr />
-                <p>
-                    @Html.DisplayFor(modelItem => item.AgncyPhone),  @Html.DisplayFor(modelItem => item.AgncyFax)
-                </p>
-            </div>
-        </div>
-        <hr />}
-    </div>
-</div>
-
+           
 
 
 
