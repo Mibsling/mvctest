@@ -58,16 +58,25 @@ namespace mvctest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CustFirstName,CustLastName,CustAddress,CustCity,CustProv,CustPostal,CustCountry,CustHomePhone,CustBusPhone,CustEmail,AgentId,PasswordNotHashed,PasswordHashed,PasswordSalt")] Customers customers)
         {
-            //_context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
-            Debug.Write("\n\n\n");
-            if (ModelState.IsValid)
+            var customer = from b in _context.Customers
+                           where b.CustEmail.Equals(customers.CustEmail)
+                           select b;
+            if (customer.Count() > 0)
             {
-                _context.Add(customers);
-                Debug.WriteLine(_context.Customers);
-                await _context.SaveChangesAsync();
-                HttpContext.Session.SetString("userEmail", customers.CustEmail);
-                return Redirect("~/");
+                return View("~/Views/Home/Index.cshtml");
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(customers);
+                    Debug.WriteLine(_context.Customers);
+                    await _context.SaveChangesAsync();
+                    HttpContext.Session.SetString("userEmail", customers.CustEmail);
+                    return Redirect("~/");
+                }
+            }
+
             return View(customers);
             
         }
