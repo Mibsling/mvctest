@@ -67,7 +67,7 @@ namespace mvctest
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {
