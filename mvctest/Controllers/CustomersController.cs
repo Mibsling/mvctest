@@ -45,51 +45,29 @@ namespace mvctest.Controllers
             return View(customers);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> LogIn([Bind("CustEmail,PasswordNotHashed")] Customers customers)
-        //{
-        //    TravelExpertsContext context = new TravelExpertsContext();
-        //    //var customer = (from b in context.Customers
-        //    //                where b.CustEmail.Equals(customers.CustEmail)
-        //    //                select b);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogIn([Bind("CustEmail,PasswordNotHashed")] Customers customers)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            var customer = (from b in db.Customers
+                                  where b.CustEmail.Equals(customers.CustEmail) && b.PasswordNotHashed.Equals(customers.PasswordNotHashed)
+                            select b).FirstOrDefault();
 
-        //    var customer = context.Customers
-        //               .Where(b => b.CustEmail == customers.CustEmail)
-        //               .Include("PasswordHashed")
-        //               .FirstOrDefault();
+            if (customer == null)
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
+            else
+            {
+                HttpContext.Session.SetString("userEmail", customers.CustEmail);
+                Debug.WriteLine("\n\n\n\n" + HttpContext.Session.GetString("userEmail"));
+                return Redirect("~/");
+            }
+            return Redirect("~/");
+            //return View(customers);
 
-        //    var count = context.Customers
-        //               .Where(b => b.CustEmail == customers.CustEmail)
-        //               .Include("PasswordHashed").Count();
-
-        //    //var blog = context.Blogs
-        //    //        .Where(b => b.Name == "ADO.NET Blog")
-        //    //        .FirstOrDefault();
-        //    Debug.WriteLine(customers.CustEmail);
-        //    Debug.WriteLine(customer.CustEmail);
-        //    //Debug.WriteLine(customer.ElementAt(2));
-        //    //customer.
-        //    if (count == 1)
-        //    {
-        //        if (customer.PasswordNotHashed.Equals(""))
-        //        return View("~/Views/Home/Index.cshtml");
-        //    }
-        //    else
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            _context.Add(customers);
-        //            Debug.WriteLine(_context.Customers);
-        //            await _context.SaveChangesAsync();
-        //            HttpContext.Session.SetString("userEmail", customers.CustEmail);
-        //            return Redirect("~/");
-        //        }
-        //    }
-        //    return Redirect("~/");
-        //    //return View(customers);
-
-        //}
+        }
 
         // GET: Customers/Create
         public IActionResult Create()
