@@ -55,6 +55,11 @@ namespace mvctest.Controllers
             return View(await _context.Packages.ToListAsync());
         }
 
+        public async Task<IActionResult> Bookings()
+        {
+            return View(await _context.Bookings.ToListAsync());
+        }
+
         public async Task<IActionResult> Agencies()
         {
             return View(await _context.Agencies.ToListAsync());
