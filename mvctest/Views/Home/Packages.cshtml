@@ -7,14 +7,14 @@
             <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                 <div class="text">
                     @*<p class="breadcrumbs mb-2"><span>Registration</span></p>*@
-                    <h1 class="mb-4 bread">Register Here</h1>
+                    <h1 class="mb-4 bread">Packages</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -59,4 +59,43 @@
         </tr>
 }
     </tbody>
-</table>
+</table>*@
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Are You Ready to Travel?</h2>
+                @*<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>*@
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="project">
+                        <div class="img">
+                            <a href="/Destinations/AddPackage/2"><img src="../images/bg_2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                        </div>
+                        <div class="text text-center">
+                            @*<h4 class="price">$3,000</h4>
+        <span>8 Day All Inclusive Hawaiian Vacation</span>*@
+                            <hr />
+                            <input type="submit" value="Book" class="btn btn-primary" />
+                            <h3>@Html.DisplayFor(modelItem => item.PkgName)</h3>
+                            <p> @Html.DisplayFor(modelItem => item.PkgStartDate)</p>
+                            <p>@Html.DisplayFor(modelItem => item.PkgEndDate)</p>
+                            <p>@Html.DisplayFor(modelItem => item.PkgDesc)</p>
+                            <p><h4 class="price">$@Html.DisplayFor(modelItem => item.PkgBasePrice)</h4></p>
+
+                        </div>
+                        @*<a href="../images/bg_2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+            <span class="icon-expand"></span>
+        </a>*@
+                        
+                    </div>
+                </div>
+
+            </div>}
+    </div>
+</section>
