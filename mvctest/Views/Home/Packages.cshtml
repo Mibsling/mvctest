@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<mvctest.Models.Packages>
+@using Microsoft.AspNetCore.Http;
 
 <div class="hero-wrap" style="background-image: url('../images/maldives-1.jpeg');">
     <div class="overlay"></div>
@@ -15,51 +16,51 @@
 </div>
 
 @*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Package Name
-            </th>
-            <th>
-                Start Date
-            </th>
-            <th>
-                End Date
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Price
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PkgName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PkgStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PkgEndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PkgDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PkgBasePrice)
-            </td>
-            <td>
-                <input type="submit" value="Book" class="btn btn-primary" />
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+        <thead>
+            <tr>
+                <th>
+                    Package Name
+                </th>
+                <th>
+                    Start Date
+                </th>
+                <th>
+                    End Date
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkgName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkgStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkgEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkgDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PkgBasePrice)
+                </td>
+                <td>
+                    <input type="submit" value="Book" class="btn btn-primary" />
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
 
 <section class="ftco-section">
     <div class="container">
@@ -81,7 +82,16 @@
                             @*<h4 class="price">$3,000</h4>
         <span>8 Day All Inclusive Hawaiian Vacation</span>*@
                             <hr />
-                            <input type="submit" value="Book" class="btn btn-primary" />
+                            @if (string.IsNullOrEmpty(Context.Session.GetString("userEmail")))
+                            {
+                                <a asp-action="Registration" class="btn btn-primary">Log In to Book</a>
+                            }
+                            else
+                            {
+                                <a asp-action="Create" asp-controller="Bookings" asp-route-id="@item.PackageId" class="btn btn-primary">Book</a>
+                            }
+
+                            @*<input type="submit" value="Book" class="btn btn-primary" />*@
                             <h3>@Html.DisplayFor(modelItem => item.PkgName)</h3>
                             <p> @Html.DisplayFor(modelItem => item.PkgStartDate)</p>
                             <p>@Html.DisplayFor(modelItem => item.PkgEndDate)</p>
@@ -90,9 +100,9 @@
 
                         </div>
                         @*<a href="../images/bg_2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-            <span class="icon-expand"></span>
-        </a>*@
-                        
+                                <span class="icon-expand"></span>
+                            </a>*@
+
                     </div>
                 </div>
 
