@@ -50,6 +50,24 @@ namespace mvctest.Controllers
             return View();
         }
 
+        public IActionResult EditCustomer(int? id)
+        {
+            ViewData["Message"] = "Your registration page.";
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customers = _context.Customers.Find(id);
+            if (customers == null)
+            {
+                return NotFound();
+            }
+            return View(customers);
+            //return View();
+        }
+
         public async Task<IActionResult> Packages()
         {
             return View(await _context.Packages.ToListAsync());
@@ -59,6 +77,21 @@ namespace mvctest.Controllers
         {
             return View(await _context.Agencies.ToListAsync());
         }
+
+        //public async Task<IActionResult> EditCustomer(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var customers = await _context.Customers.FindAsync(id);
+        //    if (customers == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(customers);
+        //}
 
         public IActionResult Privacy()
         {

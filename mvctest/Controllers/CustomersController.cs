@@ -73,6 +73,7 @@ namespace mvctest.Controllers
                     Debug.WriteLine(_context.Customers);
                     await _context.SaveChangesAsync();
                     HttpContext.Session.SetString("userEmail", customers.CustEmail);
+                    HttpContext.Session.SetString("userId", customers.CustomerId.ToString());
                     return Redirect("~/");
                 }
             }
@@ -127,9 +128,10 @@ namespace mvctest.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return Redirect("~/");
             }
-            return View(customers);
+            return View();
         }
 
         // GET: Customers/Delete/5

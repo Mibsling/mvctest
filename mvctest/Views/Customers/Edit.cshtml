@@ -6,92 +6,159 @@
 
 <h2>Edit</h2>
 
-<h4>Customers</h4>
+<h4>Account Information</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CustomerId" />
-            <div class="form-group">
-                <label asp-for="CustFirstName" class="control-label"></label>
-                <input asp-for="CustFirstName" class="form-control" />
-                <span asp-validation-for="CustFirstName" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label asp-for="CustFirstName">First Name: </label>
+                    <input asp-for="CustFirstName" class="form-control" />
+                    <span asp-validation-for="CustFirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="CustLastName">Last Name: </label>
+                    <input asp-for="CustLastName" class="form-control" />
+                    <span asp-validation-for="CustLastName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustLastName" class="control-label"></label>
-                <input asp-for="CustLastName" class="form-control" />
-                <span asp-validation-for="CustLastName" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label asp-for="CustAddress">Address: </label>
+                    <input asp-for="CustAddress" class="form-control" />
+                    <span asp-validation-for="CustAddress" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustAddress" class="control-label"></label>
-                <input asp-for="CustAddress" class="form-control" />
-                <span asp-validation-for="CustAddress" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="CustCity">City: </label>
+                    <input asp-for="CustCity" class="form-control" />
+                    <span asp-validation-for="CustCity" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="CustProv">Province: </label>
+                    <input asp-for="CustProv" class="form-control" placeholder="XX" />
+                    <span asp-validation-for="CustProv" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustCity" class="control-label"></label>
-                <input asp-for="CustCity" class="form-control" />
-                <span asp-validation-for="CustCity" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="CustPostal">Postal Code: </label>
+                    <input asp-for="CustPostal" class="form-control" placeholder="*** ***" />
+                    <span asp-validation-for="CustPostal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="CustCountry">Country: </label>
+                    <input asp-for="CustCountry" class="form-control" />
+                    <span asp-validation-for="CustCountry" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustProv" class="control-label"></label>
-                <input asp-for="CustProv" class="form-control" />
-                <span asp-validation-for="CustProv" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="CustHomePhone">Home Phone: </label>
+                    <input asp-for="CustHomePhone" class="form-control" />
+                    <span asp-validation-for="CustHomePhone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label asp-for="CustBusPhone">Business Phone: </label>
+                    <input asp-for="CustBusPhone" class="form-control" />
+                    <span asp-validation-for="CustBusPhone" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustPostal" class="control-label"></label>
-                <input asp-for="CustPostal" class="form-control" />
-                <span asp-validation-for="CustPostal" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="CustEmail">Email: </label>
+                    <input asp-for="CustEmail" class="form-control" placeholder="email@address.com" />
+                    <span asp-validation-for="CustEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group offset-2 col-md-2">
+                    <label asp-for="AgentId">Referring Agent ID: </label>
+                    <input asp-for="AgentId" class="form-control" placeholder="#" />
+                    <span asp-validation-for="AgentId" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustCountry" class="control-label"></label>
-                <input asp-for="CustCountry" class="form-control" />
-                <span asp-validation-for="CustCountry" class="text-danger"></span>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="PasswordNotHashed">Password: </label>
+                    <input asp-for="PasswordNotHashed" class="form-control" />
+                    <span asp-validation-for="PasswordNotHashed" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CustHomePhone" class="control-label"></label>
-                <input asp-for="CustHomePhone" class="form-control" />
-                <span asp-validation-for="CustHomePhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustBusPhone" class="control-label"></label>
-                <input asp-for="CustBusPhone" class="form-control" />
-                <span asp-validation-for="CustBusPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustEmail" class="control-label"></label>
-                <input asp-for="CustEmail" class="form-control" />
-                <span asp-validation-for="CustEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AgentId" class="control-label"></label>
-                <input asp-for="AgentId" class="form-control" />
-                <span asp-validation-for="AgentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordNotHashed" class="control-label"></label>
-                <input asp-for="PasswordNotHashed" class="form-control" />
-                <span asp-validation-for="PasswordNotHashed" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordHashed" class="control-label"></label>
-                <input asp-for="PasswordHashed" class="form-control" />
-                <span asp-validation-for="PasswordHashed" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordSalt" class="control-label"></label>
-                <input asp-for="PasswordSalt" class="form-control" />
-                <span asp-validation-for="PasswordSalt" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="CustFirstName" class="control-label">First Name</label>
+            <input asp-for="CustFirstName" class="form-control" />
+            <span asp-validation-for="CustFirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustLastName" class="control-label">Last Name</label>
+            <input asp-for="CustLastName" class="form-control" />
+            <span asp-validation-for="CustLastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustAddress" class="control-label">Address</label>
+            <input asp-for="CustAddress" class="form-control" />
+            <span asp-validation-for="CustAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustCity" class="control-label">City</label>
+            <input asp-for="CustCity" class="form-control" />
+            <span asp-validation-for="CustCity" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustProv" class="control-label">Province</label>
+            <input asp-for="CustProv" class="form-control" />
+            <span asp-validation-for="CustProv" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustPostal" class="control-label">Postal Code</label>
+            <input asp-for="CustPostal" class="form-control" />
+            <span asp-validation-for="CustPostal" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustCountry" class="control-label">Country</label>
+            <input asp-for="CustCountry" class="form-control" />
+            <span asp-validation-for="CustCountry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustHomePhone" class="control-label">Home Phone</label>
+            <input asp-for="CustHomePhone" class="form-control" />
+            <span asp-validation-for="CustHomePhone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustBusPhone" class="control-label">Business Phone</label>
+            <input asp-for="CustBusPhone" class="form-control" />
+            <span asp-validation-for="CustBusPhone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustEmail" class="control-label">Email</label>
+            <input asp-for="CustEmail" class="form-control" />
+            <span asp-validation-for="CustEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AgentId" class="control-label">Referring Agent ID</label>
+            <input asp-for="AgentId" class="form-control" />
+            <span asp-validation-for="AgentId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PasswordNotHashed" class="control-label">Password</label>
+            <input asp-for="PasswordNotHashed" class="form-control" />
+            <span asp-validation-for="PasswordNotHashed" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
