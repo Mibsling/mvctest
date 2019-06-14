@@ -1,7 +1,8 @@
-﻿@using Microsoft.AspNetCore.Http;
+﻿
+@using Microsoft.AspNetCore.Http;
 @{
-    Context.Session.SetString("userEmail", "test");
-    Context.Session.SetString("userId", "177");
+    //Context.Session.SetString("userEmail", "test");
+    //Context.Session.SetString("userId", "177");
 }
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
         <style>
             .loggedInAs {
                 background-color: #8d703b;
-                opacity:0.8;
+                opacity: 0.8;
             }
         </style>
 
@@ -68,12 +69,19 @@
                     @if (string.IsNullOrEmpty(Context.Session.GetString("userEmail")))
                     {
                         <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Registration" class="nav-link">Register</a></li>
+                        <form class="form-inline" asp-controller="Customers" asp-action="LogIn">
+                            <input name="CustEmail" class="form-control col-md-3" placeholder="email" />
+
+                            <input name="PasswordNotHashed" class="form-control col-md-3" placeholder="pass" type="password" />
+                            <input type="submit" value="Log In" class="btn btn-primary" />
+                        </form>
                     }
                     else
                     {
                         <li class="nav-item loggedInAs">
-                            <span class="nav-link">Logged in as: <a class="nav-link" asp-action="Edit" asp-controller="Customers" asp-route-id="@Context.Session.GetString("userId")">@Context.Session.GetString("userEmail")</a>
-                                
+                            <span class="nav-link">
+                                Logged in as: <a class="nav-link" asp-action="Edit" asp-controller="Customers" asp-route-id="@Context.Session.GetString("userId")">@Context.Session.GetString("userEmail")</a>
+
                             </span>
                         </li>
                         <li class="nav-item">
@@ -81,6 +89,7 @@
                         </li>
                     }
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -134,16 +143,16 @@
     <partial name="_CookieConsentPartial" />
 
     @RenderBody()
-    
+
     <section class="instagram">
-        <div class="container-fluid">          
+        <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-sm-12 col-md ftco-animate">
                     <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(../images/insta-1.jpg);">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md ftco-animate">
-                    <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(../images/insta-2.jpg);">                      
+                    <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(../images/insta-2.jpg);">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md ftco-animate">
