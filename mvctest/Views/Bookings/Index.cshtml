@@ -3,53 +3,68 @@
 @{
     ViewData["Title"] = "Index";
 }
-<br /><br /><br /><br />
-<h2>Purchased Bookings</h2>
+    <div class="hero-wrap" style="background-image: url('../images/maldives-1.jpeg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+                <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                    <div class="text">
+                        @*<p class="breadcrumbs mb-2"><span>Registration</span></p>*@
+                        <h1 class="mb-4 bread">Bookings</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <hr />
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Booking Date
-            </th>
-            <th>
-                Booking #
-            </th>
-            <th>
-                Traveler Count
-            </th>
-            <th>
-                Trip Type
-            </th>
-            <th>
-                Package ID
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TravelerCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TripTypeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PackageId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row block-9 justify-content-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Booking Date
+                </th>
+                <th>
+                    Booking #
+                </th>
+                <th>
+                    Traveler Count
+                </th>
+                <th>
+                    Trip Type
+                </th>
+                <th>
+                    Package ID
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookingNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TravelerCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TripTypeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PackageId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

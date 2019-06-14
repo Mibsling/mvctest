@@ -54,6 +54,16 @@ namespace mvctest.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
+            //using (var dbcontext = new TravelExpertsContext())
+            //{
+            //    var bookings = dbcontext.Bookings.Select(a => new SelectListItem
+            //    {
+            //        Text = $"{a.TripTypeId}"
+            //    }).ToList();
+            //    ViewBag.TripTypes = bookings;
+            //}
+            //ViewBag.
+            //List<String> lstTripType = dbcontext.Bookings.
             return View();
         }
 

@@ -4,11 +4,23 @@
     ViewData["Title"] = "Create";
 }
 
-<br /><br /><br />
-<h2>Create</h2>
 
-<h4>Bookings</h4>
-<hr />
+<div class="hero-wrap" style="background-image: url('../images/maldives-1.jpeg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    @*<p class="breadcrumbs mb-2"><span>Registration</span></p>*@
+                    <h1 class="mb-4 bread">Create</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h4>Bookings</h4>
+<hr />*@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -34,6 +46,8 @@
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                @*@Html.DropDownListFor(M => M.TripTypeId, ViewBag.GetData as SelectList, new { @class = "form-control" })*@
+                @*//@Html.DropDownList("TripTypeId", ViewBag.TripTypes as SelectList)*@
                 <label asp-for="TripTypeId" class="control-label"></label>
                 <input asp-for="TripTypeId" class="form-control" />
                 <span asp-validation-for="TripTypeId" class="text-danger"></span>
