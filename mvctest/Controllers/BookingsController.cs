@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,15 @@ namespace mvctest.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bookings.ToListAsync());
+
+            TravelExpertsContext db = new TravelExpertsContext();
+            var customer = (from b in db.Bookings
+                            join c in db.Customers on b.CustomerId equals c.CustomerId
+                            where b.CustomerId.ToString() == HttpContext.Session.GetString("userId")
+                            select b);
+
+            return View(customer);
+            //return View(await _context.Bookings.ToListAsync());
         }
 
         // GET: Bookings/Details/5

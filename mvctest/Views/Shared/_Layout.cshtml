@@ -64,6 +64,7 @@
                     <li class="nav-item active"><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
                     <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Agencies" class="nav-link">Contact</a></li>
                     <li class="nav-item active"><a asp-area="" asp-controller="Home" asp-action="Packages" class="nav-link">Packages</a></li>
+
                     @*<li>@Html.ActionLink("Registration", "Index", "Customers")</li>*@
                     @if (string.IsNullOrEmpty(Context.Session.GetString("userEmail")))
                     {
@@ -79,6 +80,7 @@
                     }
                     else
                     {
+                        <li class="nav-item active"><a asp-area="" asp-controller="Bookings" asp-action="Index" class="nav-link">Bookings</a></li>
                         <li class="nav-item loggedInAs">
                             <span class="nav-link">
                                 Logged in as: <a class="nav-link" asp-action="Edit" asp-controller="Customers" asp-route-id="@Context.Session.GetString("userId")">@Context.Session.GetString("userEmail")</a>

@@ -3,32 +3,26 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br /><br /><br /><br />
+<h2>Purchased Bookings</h2>
+<hr />
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BookingDate)
+                Booking Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingNo)
+                Booking #
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelerCount)
+                Traveler Count
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerId)
+                Trip Type
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TripTypeId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PackageId)
+                Package ID
             </th>
             <th></th>
         </tr>
@@ -46,9 +40,6 @@
                 @Html.DisplayFor(modelItem => item.TravelerCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.TripTypeId)
             </td>
             <td>
@@ -56,7 +47,6 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
             </td>
         </tr>
