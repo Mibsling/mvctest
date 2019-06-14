@@ -34,13 +34,13 @@ namespace mvctest
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
                 options.Cookie.HttpOnly = true;
                 // Make the session cookie essential
-                options.Cookie.IsEssential = true;
+                //options.Cookie.IsEssential = true;
             });
 
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                //options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
@@ -67,7 +67,7 @@ namespace mvctest
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {
