@@ -18,7 +18,124 @@
     </div>
 </div>
 
-            <div class="container justify-content-center">
+
+@*<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row no-gutters d-flex ">
+            <div class="col-md-6 col-lg-5 d-flex">
+                <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(../images/image_5.jpg);">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-7 px-lg-5 py-md-5 bg-darken">
+                <div class="py-md-5">*@
+<hr />
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate p-5 p-lg-0 text-center">
+                            @foreach (var item in Model)
+                                {
+                                    <h2 class="mb-4">Address</h2>
+                                   
+                                    <p> @Html.DisplayFor(modelItem => item.AgncyAddress), @Html.DisplayFor(modelItem => item.AgncyCity), @Html.DisplayFor(modelItem => item.AgncyProv)</p>
+
+                                    <p>@Html.DisplayFor(modelItem => item.AgncyPostal), @Html.DisplayFor(modelItem => item.AgncyCountry)</p>
+                                    <p>@Html.DisplayFor(modelItem => item.AgncyPhone),  @Html.DisplayFor(modelItem => item.AgncyFax)</p>
+                                }
+                        </div>
+                    </div>
+
+
+
+                    <section class="ftco-section testimony-section bg-light">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8 ftco-animate">
+                                    <div class="row ftco-animate">
+                                        <div class="col-md-12">
+                                            <div class="carousel-testimony owl-carousel ftco-owl">
+                                                <div class="item">
+                                                    <div class="testimony-wrap py-4 pb-5">
+                                                        <div class="user-img mb-4" style="background-image: url(../images/person_1.jpg)">
+                                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                                <i class="icon-quote-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text text-center">
+                                                            <p class="mb-4">I never regretted using Travel Experts. I Purchased a Vacation Package for my family and the trip brought us closer </p>
+                                                            <p class="name">Nathan Smith</p>
+                                                            <span class="position">Client</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="testimony-wrap py-4 pb-5">
+                                                        <div class="user-img mb-4" style="background-image: url(../images/person_2.jpg)">
+                                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                                <i class="icon-quote-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text text-center">
+                                                            <p class="mb-4">Best Travel Experience.</p>
+                                                            <p class="name">John Doe</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="testimony-wrap py-4 pb-5">
+                                                        <div class="user-img mb-4" style="background-image: url(../images/person_3.jpg)">
+                                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                                <i class="icon-quote-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text text-center">
+                                                            <p class="mb-4">i wasnt disappointed.I will totally patronise Travel Experts again</p>
+                                                            <p class="name">Nathan Smith</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="testimony-wrap py-4 pb-5">
+                                                        <div class="user-img mb-4" style="background-image: url(../images/person_1.jpg)">
+                                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                                <i class="icon-quote-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text text-center">
+                                                            <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                                            <p class="name">Nathan Smith</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="testimony-wrap py-4 pb-5">
+                                                        <div class="user-img mb-4" style="background-image: url(../images/person_1.jpg)">
+                                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                                <i class="icon-quote-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text text-center">
+                                                            <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                                            <p class="name">Nathan Smith</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                @*</div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+            @*<div class="container justify-content-center">
                 <div class="row d-flex mb-5 contact-info justify-content-center">
 
                     @foreach (var item in Model){
@@ -43,8 +160,29 @@
                     </div>
                     <hr />}
                 </div>
-            </div>
+            </div>*@
            
+            
 
+            @*<section class="ftco-section ftc-no-pb ftc-no-pt">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 p-md-5 img img-2 img-3 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+                        </div>
+                        <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                            <div class="heading-section heading-section-wo-line pt-md-4 mb-5">
+                                <div class="ml-md-0">
+                                    <h2 class="mb-4">Address</h2>
+                                </div>
+                            </div>
+                            <div class="pb-md-4">
+                                <p>Travel Experts offers the only way to get value for every dollar you spend. With Travel Experts, you can choose the precise travel content you need and integrate every reservation—no matter how those reservations are made.</p>
+                                <p class="pl-md-5">We have more convenient direct flights to the south from more Canadian gateways than any other leisure carrier, making it easier for you to plan your dream all inclusive vacation. Book your vacation with confidence knowing that you’re choosing from the best selection of top-rated hotels and resorts in the most popular vacation destinations</p>
+                                <p>Book your vacation with confidence knowing that you’re choosing from the best selection of top-rated hotels and resorts in the most popular vacation destinations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>*@
 
 
