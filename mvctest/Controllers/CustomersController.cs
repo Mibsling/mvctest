@@ -163,6 +163,30 @@ namespace mvctest.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogIn([Bind("CustEmail,PasswordNotHashed")] Customers customers)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            var customer = (from b in db.Customers
+                            where b.CustEmail.Equals(customers.CustEmail) && b.PasswordNotHashed.Equals(customers.PasswordNotHashed)
+                            select b).FirstOrDefault();
+
+            if (customer == null)
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
+            else
+            {
+                HttpContext.Session.SetString("userEmail", customers.CustEmail);
+                Debug.WriteLine("\n\n\n\n" + HttpContext.Session.GetString("userEmail"));
+                return Redirect("~/");
+            }
+            return Redirect("~/");
+            //return View(customers);
+
+        }
+
         private bool CustomersExists(int id)
         {
             return _context.Customers.Any(e => e.CustomerId == id);

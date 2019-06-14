@@ -69,12 +69,13 @@
                     @if (string.IsNullOrEmpty(Context.Session.GetString("userEmail")))
                     {
                         <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Registration" class="nav-link">Register</a></li>
-                        <form class="form-inline" asp-controller="Customers" asp-action="LogIn">
-                            <input name="CustEmail" class="form-control col-md-3" placeholder="email" />
+                        @*<form class="form-inline" asp-controller="Customers" asp-action="LogIn">
+                <input name="CustEmail" class="form-control col-md-3" placeholder="email" />
 
-                            <input name="PasswordNotHashed" class="form-control col-md-3" placeholder="pass" type="password" />
-                            <input type="submit" value="Log In" class="btn btn-primary" />
-                        </form>
+                <input name="PasswordNotHashed" class="form-control col-md-3" placeholder="pass" type="password" />
+                <input type="submit" value="Log In" class="btn btn-primary" />
+            </form>*@
+                        @Html.Partial("Login.cshtml")
                     }
                     else
                     {
@@ -89,6 +90,8 @@
                         </li>
                     }
                 </ul>
+
+                
 
             </div>
         </div>
