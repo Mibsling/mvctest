@@ -163,13 +163,36 @@ namespace mvctest.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login([Bind("CustEmail,PasswordNotHashed")] Customers customers)
+        //{
+        //    TravelExpertsContext db = new TravelExpertsContext();
+        //    var customer = (from b in db.Customers
+        //                    where b.CustEmail.Equals(customers.CustEmail) && b.PasswordNotHashed.Equals(customers.PasswordNotHashed)
+        //                    select b).FirstOrDefault();
+
+        //    if (customer == null)
+        //    {
+        //        return View("~/Views/Home/Index.cshtml");
+        //    }
+        //    else
+        //    {
+        //        HttpContext.Session.SetString("userEmail", customers.CustEmail);
+        //        HttpContext.Session.SetString("userId", customer.CustomerId.ToString());
+        //        return Redirect("~/");
+        //    }
+        //    return Redirect("~/");
+        //    //return View(customers);
+
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogIn([Bind("CustEmail,PasswordNotHashed")] Customers customers)
+        public async Task<IActionResult> Login(string email, string pass)
         {
             TravelExpertsContext db = new TravelExpertsContext();
             var customer = (from b in db.Customers
-                            where b.CustEmail.Equals(customers.CustEmail) && b.PasswordNotHashed.Equals(customers.PasswordNotHashed)
+                            where b.CustEmail.Equals(email) && b.PasswordNotHashed.Equals(pass)
                             select b).FirstOrDefault();
 
             if (customer == null)
@@ -178,13 +201,20 @@ namespace mvctest.Controllers
             }
             else
             {
-                HttpContext.Session.SetString("userEmail", customers.CustEmail);
-                Debug.WriteLine("\n\n\n\n" + HttpContext.Session.GetString("userEmail"));
+                HttpContext.Session.SetString("userEmail", email);
+                HttpContext.Session.SetString("userId", customer.CustomerId.ToString());
                 return Redirect("~/");
             }
             return Redirect("~/");
             //return View(customers);
 
+        }
+
+        //[ChildActionOnly]
+        public ActionResult HeaderLogin()
+        {
+            var model = _context.Customers;
+            return PartialView("Login", model);
         }
 
         private bool CustomersExists(int id)
