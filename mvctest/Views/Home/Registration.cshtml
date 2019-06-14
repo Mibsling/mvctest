@@ -112,7 +112,6 @@
                                     <input asp-for="CustFirstName" class="form-control" />
                                     <span asp-validation-for="CustFirstName" class="text-danger"></span>
                                 </div>
-
                                 <div class="form-group col-md-5">
                                     <label asp-for="CustLastName">Last Name: </label>
                                     <input asp-for="CustLastName" class="form-control" />
@@ -134,7 +133,6 @@
                                     <input asp-for="CustCity" class="form-control" />
                                     <span asp-validation-for="CustCity" class="text-danger"></span>
                                 </div>
-
                                 <div class="form-group col-md-4">
                                     <label asp-for="CustProv">Province: </label>
                                     <input asp-for="CustProv" class="form-control" placeholder="XX" />
@@ -148,7 +146,6 @@
                                     <input asp-for="CustPostal" class="form-control" placeholder="*** ***" />
                                     <span asp-validation-for="CustPostal" class="text-danger"></span>
                                 </div>
-
                                 <div class="form-group col-md-4">
                                     <label asp-for="CustCountry">Country: </label>
                                     <input asp-for="CustCountry" class="form-control" />
@@ -173,15 +170,14 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label asp-for="AgentId">Agent ID: </label>
-                                    <input asp-for="AgentId" class="form-control" placeholder="#" />
-                                    <span asp-validation-for="AgentId" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group col-md-6">
                                     <label asp-for="CustEmail">Email: </label>
                                     <input asp-for="CustEmail" class="form-control" placeholder="email@address.com" />
                                     <span asp-validation-for="CustEmail" class="text-danger"></span>
+                                </div>
+                                <div class="form-group offset-2 col-md-2">
+                                    <label asp-for="AgentId">Referring Agent ID: </label>
+                                    <input asp-for="AgentId" class="form-control" placeholder="#" />
+                                    <span asp-validation-for="AgentId" class="text-danger"></span>
                                 </div>
                             </div>
 
