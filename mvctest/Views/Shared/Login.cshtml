@@ -1,13 +1,20 @@
-﻿@model mvctest.Models.Customers
-
+﻿@*//@model mvctest.Models.Customers
 
 <form class="form-inline" asp-controller="Customers" asp-action="LogIn">
     <input asp-for="CustEmail" class="form-control col-md-3" placeholder="email" />
     <span asp-validation-for="CustEmail" class="text-danger"></span>
-    <input asp-for="PasswordNotHashed" class="form-control col-md-3" placeholder="pass" type="password" />
+    <input asp-for="PasswordNotHashed" class="form-control col-md-3" placeholder="password" type="password" />
     <span asp-validation-for="PasswordNotHashed" class="text-danger"></span>
         <input type="submit" value="Log In" class="btn btn-primary" />
-</form>
+</form>*@
+
+@using(Html.BeginForm("Login", "Customers", new { ReturnUrl = ViewBag.ReturnUrl }, 
+            FormMethod.Post, false, new { @class="form-inline" }))
+{
+    <input type="text" name="email" class="form-control col-md-3" placeholder="email" />
+    <input name="pass" class="form-control col-md-3" placeholder="password" type="password"/>
+    <input type="submit" value="login" class="btn btn-primary" />
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
